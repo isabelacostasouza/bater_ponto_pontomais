@@ -1,10 +1,17 @@
 import time
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+
+driver = webdriver.Chrome(chrome_options=chrome_options, executable_path="./chromedriver")
 
 email = '[your_email]'
 password = '[your_password]'
 
-driver = webdriver.Chrome()
 driver.get('https://app.pontomaisweb.com.br/#/acessar')
 
 emailElement = driver.find_element_by_name("login")
